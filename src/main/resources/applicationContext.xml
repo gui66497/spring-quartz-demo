@@ -55,7 +55,7 @@
         </property>
     </bean>
 
-    <bean id="jdbcDao" class="com.dexcoder.assistant.persistence.JdbcDaoImpl">
+    <bean id="jdbcDao" class="com.dexcoder.dal.spring.JdbcDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />

@@ -1,6 +1,6 @@
 package com.dexcoder.demo.exceptions;
 
-import com.dexcoder.assistant.exceptions.DexcoderException;
+import com.dexcoder.commons.exceptions.DexcoderException;
 
 /**
  * 自定义异常
@@ -11,13 +11,6 @@ public class ScheduleException extends DexcoderException {
 
     /** serialVersionUID */
     private static final long serialVersionUID = -1921648378954132894L;
-
-    /**
-     * Constructor
-     */
-    public ScheduleException() {
-        super();
-    }
 
     /**
      * Instantiates a new ScheduleException.

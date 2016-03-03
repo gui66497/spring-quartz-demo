@@ -27,7 +27,7 @@ public class JobSyncFactory implements Job {
         System.out.println("jobName:" + scheduleJob.getJobName() + "  " + scheduleJob);
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

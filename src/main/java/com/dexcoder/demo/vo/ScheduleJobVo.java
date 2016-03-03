@@ -1,8 +1,8 @@
 package com.dexcoder.demo.vo;
 
-import java.util.Date;
+import com.dexcoder.commons.pager.Pageable;
 
-import com.dexcoder.assistant.pager.Pageable;
+import java.util.Date;
 
 /**
  * Created by liyd on 12/19/14.
@@ -15,7 +15,7 @@ public class ScheduleJobVo extends Pageable {
     public static final String JOB_PARAM_KEY    = "jobParam";
 
     /** 任务id */
-    private Long             scheduleJobId;
+    private Long               scheduleJobId;
 
     /** 任务名称 */
     private String             jobName;

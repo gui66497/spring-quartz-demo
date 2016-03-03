@@ -8,9 +8,9 @@ import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dexcoder.assistant.bean.BeanConverter;
-import com.dexcoder.assistant.persistence.Criteria;
-import com.dexcoder.assistant.persistence.JdbcDao;
+import com.dexcoder.commons.bean.BeanConverter;
+import com.dexcoder.dal.JdbcDao;
+import com.dexcoder.dal.build.Criteria;
 import com.dexcoder.demo.model.ScheduleJob;
 import com.dexcoder.demo.service.ScheduleJobService;
 import com.dexcoder.demo.utils.ScheduleUtils;
@@ -33,14 +33,14 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
     private JdbcDao   jdbcDao;
 
     public void initScheduleJob() {
-        List<ScheduleJob> scheduleJobList = jdbcDao.queryList(Criteria.create(ScheduleJob.class));
+        List<ScheduleJob> scheduleJobList = jdbcDao.queryList(Criteria.select(ScheduleJob.class));
         if (CollectionUtils.isEmpty(scheduleJobList)) {
             return;
         }
         for (ScheduleJob scheduleJob : scheduleJobList) {
 
-            CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler,
-                scheduleJob.getJobName(), scheduleJob.getJobGroup());
+            CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler, scheduleJob.getJobName(),
+                scheduleJob.getJobGroup());
 
             //不存在，创建一个
             if (cronTrigger == null) {
@@ -67,8 +67,7 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
     public void delUpdate(ScheduleJobVo scheduleJobVo) {
         ScheduleJob scheduleJob = scheduleJobVo.getTargetObject(ScheduleJob.class);
         //先删除
-        ScheduleUtils.deleteScheduleJob(scheduler, scheduleJob.getJobName(),
-            scheduleJob.getJobGroup());
+        ScheduleUtils.deleteScheduleJob(scheduler, scheduleJob.getJobName(), scheduleJob.getJobGroup());
         //再创建
         ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
         //数据库直接更新即可
@@ -78,8 +77,7 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
     public void delete(Long scheduleJobId) {
         ScheduleJob scheduleJob = jdbcDao.get(ScheduleJob.class, scheduleJobId);
         //删除运行的任务
-        ScheduleUtils.deleteScheduleJob(scheduler, scheduleJob.getJobName(),
-            scheduleJob.getJobGroup());
+        ScheduleUtils.deleteScheduleJob(scheduler, scheduleJob.getJobName(), scheduleJob.getJobGroup());
         //删除数据
         jdbcDao.delete(ScheduleJob.class, scheduleJobId);
     }
@@ -112,11 +110,9 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
 
     public List<ScheduleJobVo> queryList(ScheduleJobVo scheduleJobVo) {
 
-        List<ScheduleJob> scheduleJobs = jdbcDao.queryList(scheduleJobVo
-            .getTargetObject(ScheduleJob.class));
+        List<ScheduleJob> scheduleJobs = jdbcDao.queryList(scheduleJobVo.getTargetObject(ScheduleJob.class));
 
-        List<ScheduleJobVo> scheduleJobVoList = BeanConverter.convert(ScheduleJobVo.class,
-            scheduleJobs);
+        List<ScheduleJobVo> scheduleJobVoList = BeanConverter.convert(ScheduleJobVo.class, scheduleJobs);
         try {
             for (ScheduleJobVo vo : scheduleJobVoList) {
 

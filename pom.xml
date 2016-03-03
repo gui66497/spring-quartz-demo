@@ -37,8 +37,8 @@
   <dependencies>
     <dependency>
       <groupId>com.dexcoder</groupId>
-      <artifactId>dexcoder-assistants</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <artifactId>dexcoder-dal-spring</artifactId>
+      <version>2.3.1</version>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
