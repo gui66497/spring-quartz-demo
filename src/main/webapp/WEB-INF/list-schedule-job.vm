@@ -27,7 +27,7 @@
             <td>$!{item.status}</td>
             <td>$!{item.cronExpression}</td>
             <td>$!{item.isSync}</td>
-            <td>$!{item.desc}</td>
+            <td>$!{item.description}</td>
             <td>
                 <a href="input-schedule-job.shtml?scheduleJobId=$!{item.scheduleJobId}">直接修改方式</a>
                 <a href="input-schedule-job.shtml?scheduleJobId=$!{item.scheduleJobId}&keywords=delUpdate">删除创建方式</a>

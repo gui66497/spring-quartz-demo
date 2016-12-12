@@ -11,7 +11,7 @@ import com.dexcoder.demo.model.ScheduleJob;
 import com.dexcoder.demo.vo.ScheduleJobVo;
 
 /**
- * 任务工厂类,非同步
+ * 任务工厂类,非同步(相同定义的jobdetail会等待前一任务执行完毕后才执行下一个)
  *
  * User: liyd
  * Date: 14-1-3

@@ -31,7 +31,7 @@
     </tr>
     <tr>
         <td>任务描述</td>
-        <td><input type="text" name="desc" value="$!{scheduleJobVo.desc}"></td>
+        <td><input type="text" name="description" value="$!{scheduleJobVo.description}"></td>
     </tr>
 </table>
     <button type="submit">确认</button>
