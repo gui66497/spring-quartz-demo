@@ -23,7 +23,7 @@
     <velocity-tools.version>2.0</velocity-tools.version>
     <commons-lang.version>2.5</commons-lang.version>
     <commons-io.version>2.2</commons-io.version>
-    <commons-fileupload.version>1.3</commons-fileupload.version>
+    <commons-fileupload.version>1.3.3</commons-fileupload.version>
     <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
     <jsoup.version>1.7.3</jsoup.version>
     <slf4j-log4j12.version>1.6.6</slf4j-log4j12.version>
