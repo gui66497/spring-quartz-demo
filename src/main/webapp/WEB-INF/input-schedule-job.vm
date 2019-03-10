@@ -10,11 +10,11 @@
     <input type="hidden" name="keywords" value="$!{scheduleJobVo.keywords}">
 <table>
     <tr>
-        <td>任务名称</td>
+        <td>任务名称<span style="color: red">* </span></td>
         <td><input  type="text" name="jobName" value="$!{scheduleJobVo.jobName}"></td>
     </tr>
     <tr>
-        <td>任务分组</td>
+        <td>任务分组<span style="color: red">* </span></td>
         <td><input  type="text" name="jobGroup" value="$!{scheduleJobVo.jobGroup}"></td>
     </tr>
     <tr>
@@ -22,12 +22,12 @@
         <td><input type="text" name="aliasName" value="$!{scheduleJobVo.aliasName}"></td>
     </tr>
     <tr>
-        <td>时间表达式</td>
-        <td><input type="text" name="cronExpression" value="$!{scheduleJobVo.cronExpression}"></td>
+        <td>时间表达式<span style="color: red">* </span></td>
+        <td><input type="text" name="cronExpression" title="如0/10 * * * * ? 每10秒执行一次" value="$!{scheduleJobVo.cronExpression}"></td>
     </tr>
     <tr>
-        <td>是否异步</td>
-        <td><input type="text" name="isSync" value="$!{scheduleJobVo.isSync}"></td>
+        <td>是否异步<span style="color: red">* </span></td>
+        <td><input type="text" name="isSync" title="输入true或者false" value="$!{scheduleJobVo.isSync}"></td>
     </tr>
     <tr>
         <td>任务描述</td>
